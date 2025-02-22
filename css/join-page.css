@@ -44,8 +44,8 @@ section {
   text-align: center;
 }
 
-.header-logo-img {
-  background-image: url('../img/instagram-logo.png');
+.header-logo-images {
+  background-image: url('../images/instagram-logo.png');
   background-position: 0px -52px;
   background-size: auto;
   width: 175px;
@@ -66,7 +66,7 @@ section {
 }
 
 .facebook-logo {
-  background-image: url(../img/facebook-logo.png);
+  background-image: url(../images/facebook-logo.png);
   border: 0;
   display: inline-block;
   font: inherit;
