@@ -66,7 +66,6 @@ section {
 }
 
 .facebook-logo {
-  background-image: url(../images/facebook-logo.png);
   border: 0;
   display: inline-block;
   font: inherit;
@@ -109,15 +108,16 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  /* padding: 10px; */
   gap: 5px;
   margin-top: -20px;
+  width: 100%;
 }
 
 .input-container input {
   border-radius: 6px;
   background-color: #fafafa;
-  width: 105%;
+  width: 100%;
   padding: 9px 0 7px 8px;
   border-width: 1px;
   border-style: solid;
@@ -140,7 +140,7 @@ section {
 .join-btn {
   background-color: rgba(0, 149, 246, 0.8);
   text-align: center;
-  width: 105%;
+  width: 103%;
   color: white;
   padding: 7px 16px;
   border-radius: 8px;

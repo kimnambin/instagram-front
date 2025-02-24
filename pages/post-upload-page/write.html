@@ -44,16 +44,17 @@
       <input
         type="image"
         class="write-ptoto-area"
-        src=""
         id="write-ptoto-area"
         disabled />
 
       <textarea
         class="write-input"
         placeholder="문구 추가..."
-        id="write-input"></textarea>
-      <button class="write-submit-btn" onsubmit="upload_post()">공유</button>
+        id="write-input"
+        rows="5"
+        required></textarea>
+      <button class="write-submit-btn" id="write-submit-btn">공유</button>
     </form>
-    <script src="../../js/post-upload.js"></script>
+    <script src="../../js/post-write.js" defer></script>
   </body>
 </html>
