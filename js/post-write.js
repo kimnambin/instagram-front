@@ -8,6 +8,7 @@ const prePage = () => {
 document.addEventListener('DOMContentLoaded', () => {
   const preview_img = document.getElementById('write-ptoto-area');
   const getImg = localStorage.getItem('uploadedImage');
+  console.log('선택히ㅏㄴ이미지', getImg);
   preview_img.src = getImg;
 });
 
