@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="referrer" content="no-referrer" />
+    <meta name="referrer" content="origin" />
+    <meta name="referrer" content="unsafe-url" />
+    <meta name="referrer" content="strict-origin" /> -->
+
     <title>Join Page</title>
     <link rel="stylesheet" href="../css/join-page.css" />
     <link rel="stylesheet" href="../css/index.css" />
@@ -23,21 +28,38 @@
           <p class="underbar-text">또는</p>
           <div class="underbar"></div>
         </div>
-        <div class="input-container">
+        <form class="input-container">
           <input
             type="text"
             placeholder="휴대폰 번호 또는 이메일 주소"
-            name="email" />
-          <input type="text" placeholder="비밀번호" name="pw" />
-          <input type="text" placeholder="성명" name="name" />
-          <input type="text" placeholder="사용자 이름" name="username" />
+            name="email"
+            id="join_email"
+            required />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            name="pw"
+            id="join_pw"
+            required />
+          <input
+            type="text"
+            placeholder="성명"
+            name="name"
+            id="join_name"
+            required />
+          <input
+            type="text"
+            placeholder="사용자 이름"
+            name="username"
+            id="join_username"
+            required />
           <span class="input-text">
             저희 서비스를 이용하는 사람이 회원님의 연락처 정보 를 Instagram에
             업로드했을 수도 있습니다.
-            <a herf="" target="_blank" class="input-atag">더 알아보기</a>
+            <a href="" target="_blank" class="input-atag">더 알아보기</a>
           </span>
-          <button class="join-btn">가입</button>
-        </div>
+          <button type="button" class="join-btn" id="join-btn">가입</button>
+        </form>
       </section>
       <div class="main-footer">
         <span>계정이 있으신가요?</span>
@@ -76,5 +98,6 @@
 
       <div class="footer-footer">한국어 © 2025 Instagram from Meta</div>
     </footer>
+    <script src="../js/joinup.js"></script>
   </body>
 </html>
