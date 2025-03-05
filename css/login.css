@@ -1,0 +1,88 @@
+/* 전체 화면 설정 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fafafa;
+    margin: 0;
+}
+
+/* 로그인 박스 스타일 */
+.login-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    width: 350px; /* 고정된 너비로 설정 */
+}
+
+/* 로고 이미지 스타일 */
+.logo {
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+/* 입력창 스타일 */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 로그인 버튼 스타일 */
+.login-btn, .fb-login-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background-color: #3897f0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fb-login-btn {
+    background-color: #4267b2;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 구분선 스타일 */
+.divider {
+    margin: 15px 0;
+    color: #8e8e8e;
+    font-size: 14px;
+}
+
+/* 비밀번호 찾기 링크 */
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    color: #00376b;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* 가입하기 링크 스타일 */
+.sign-up-container {
+    margin-top: 20px;
+}
+
+.sign-up-link {
+    color: #3897f0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sign-up-link:hover {
+    text-decoration: underline;
+}
