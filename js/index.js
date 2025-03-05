@@ -1,7 +1,7 @@
-//로그인 상태 확인하여 화면 이동
+// //로그인 상태 확인하여 화면 이동
 
 const checkLogin = () => {
-  const ok = localStorage.getItem('ok');
+  const ok = localStorage.getItem('id');
   console.log(ok);
   if (!ok) {
     //임시로 회원가입 페이지
@@ -11,5 +11,4 @@ const checkLogin = () => {
   }
 };
 
-// DOMContentLoaded 이벤트 리스너를 설정
 document.addEventListener('DOMContentLoaded', checkLogin);
