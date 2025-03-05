@@ -5,7 +5,7 @@ const checkLogin = () => {
   console.log(ok);
   if (!ok) {
     //임시로 회원가입 페이지
-    window.location.href = './pages/join-page.html';
+    window.location.href = './pages/login.html';
   } else {
     window.location.href = './pages/main-page.html';
   }
