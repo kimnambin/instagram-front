@@ -1,0 +1,134 @@
+.modalContainer {
+  display: none;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  border-top-left-radius: 13%;
+  border-top-right-radius: 13%;
+  border-top: 1px solid black;
+  z-index: 100;
+  background-color: white;
+  height: 90vh;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.modalContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.modal-underbar {
+  background-color: rgb(219, 219, 219);
+  width: 10%;
+  margin: 0;
+  height: 5px;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+  border-top: 1px solid rgb(219, 219, 219);
+  position: fixed;
+  bottom: 3.5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+}
+
+.profile_img {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: silver;
+  margin-right: 5px;
+}
+
+.profile_img_comment {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: silver;
+  margin-right: 5px;
+}
+
+footer input {
+  border-radius: 6px;
+  width: 100%;
+  padding: 9px 0 7px 8px;
+  border-width: 1px;
+  border: none;
+}
+
+.input-text {
+  color: #737373;
+  font-weight: 400;
+  text-align: center;
+  font-size: 11.5px;
+  margin: 10px 0;
+}
+
+.modal-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-comments {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.modal-comments-mid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+}
+
+.modal-comments-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  margin-bottom: -20px;
+}
+
+.comment-nickname {
+  font-size: 0.9rem;
+}
+
+.comment-timesptamp {
+  margin-left: 10px;
+  font-size: 0.7rem;
+}
+
+wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

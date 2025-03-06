@@ -1,0 +1,112 @@
+[
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자123"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 1",
+      "timestamp": "2023-03-05T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자124"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 2",
+      "timestamp": "2023-03-06T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자125"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 3",
+      "timestamp": "2023-03-07T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자126"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 4",
+      "timestamp": "2023-03-08T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자127"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 5",
+      "timestamp": "2023-03-09T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자128"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 6",
+      "timestamp": "2023-03-10T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자129"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 7",
+      "timestamp": "2023-03-11T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자130"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 8",
+      "timestamp": "2023-03-12T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자131"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 9",
+      "timestamp": "2023-03-13T12:34:56Z"
+    }
+  },
+  {
+    "user": {
+      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "nickname": "사용자132"
+    },
+    "post": {
+      "image": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "title": "게시글 제목입니다 10",
+      "timestamp": "2023-03-14T12:34:56Z"
+    }
+  }
+]

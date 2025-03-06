@@ -31,6 +31,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  margin-bottom: 20px;
 }
 
 .posting-header {
@@ -70,6 +71,7 @@ main {
   justify-content: center;
   align-content: center;
   width: 100%;
+  margin-top: 10px;
 }
 
 .posting-footer-header {
@@ -97,6 +99,7 @@ main {
 span {
   display: flex;
   align-items: center;
+  margin-left: 10px;
 }
 
 span h4 {
