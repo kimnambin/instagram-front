@@ -1,7 +1,8 @@
 [
   {
+    "postId": 1,
     "user": {
-      "profileImage": "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo",
+      "profileImage": "https://play-lh.googleusercontent.com/...",
       "nickname": "사용자123"
     },
     "post": {
@@ -11,8 +12,9 @@
     }
   },
   {
+    "postId": 1,
     "user": {
-      "profileImage": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
+      "profileImage": "https://velog.velcdn.com/...",
       "nickname": "사용자456"
     },
     "post": {
@@ -22,36 +24,27 @@
     }
   },
   {
+    "postId": 2,
     "user": {
-      "profileImage": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
-      "nickname": "사용자789"
+      "profileImage": "https://velog.velcdn.com/...",
+      "nickname": "사용자456"
     },
     "post": {
-      "comments": "좋은 글 감사합니다!",
-      "headerBoolean": false,
-      "timestamp": "2023-03-07T09:15:30Z"
-    }
-  },
-  {
-    "user": {
-      "profileImage": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
-      "nickname": "사용자101"
-    },
-    "post": {
-      "comments": "재미있는 내용이네요!",
+      "comments": "첫 번째 댓글입니다!",
       "headerBoolean": true,
-      "timestamp": "2023-03-08T11:45:00Z"
+      "timestamp": "2023-03-06T14:00:00Z"
     }
   },
   {
+    "postId": 3,
     "user": {
-      "profileImage": "https://velog.velcdn.com/images/seonghyun015b/post/b4cebb14-e0e2-4e87-a8cb-8dcb8255ffd1/image.JPG",
-      "nickname": "사용자202"
+      "profileImage": "https://velog.velcdn.com/...",
+      "nickname": "사용자456"
     },
     "post": {
-      "comments": "더 많은 정보를 주세요!",
-      "headerBoolean": false,
-      "timestamp": "2023-03-09T16:30:00Z"
+      "comments": "첫 번째 댓글입니다!",
+      "headerBoolean": true,
+      "timestamp": "2023-03-06T14:00:00Z"
     }
   }
 ]

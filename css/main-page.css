@@ -24,6 +24,7 @@ main {
   align-content: center;
   margin-top: 20px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .posting-container {
