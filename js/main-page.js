@@ -1,4 +1,4 @@
-// TODO : 댓글 화질 이상함 + 스크롤 시 댓글 입력바도 스크롤 됨
+// TODO : 댓글 및 폿팅 시간역순서대로 정렬해야 됨
 
 async function postingData() {
   try {
@@ -52,9 +52,11 @@ async function postingData() {
               return;
             }
 
-            data.forEach(item => {
-              // 게시글 HTML
-              const postingHTML = `
+            data
+              .sort((a, b) => b.id - a.id)
+              .forEach(item => {
+                // 게시글 HTML
+                const postingHTML = `
                 <div class="posting-container" data-post-id="${item.id}">
                     <header class="posting-header">
                         <div class="posting-header-left">
@@ -114,38 +116,38 @@ async function postingData() {
                 </div>
               `;
 
-              const postElement = document.createElement('div');
-              postElement.innerHTML = postingHTML;
-              container.appendChild(postElement);
+                const postElement = document.createElement('div');
+                postElement.innerHTML = postingHTML;
+                container.appendChild(postElement);
 
-              // =============== 댓글 부분 =========================
+                // =============== 댓글 부분 =========================
 
-              const modalComment = postElement.querySelector('#modalComment');
+                const modalComment = postElement.querySelector('#modalComment');
 
-              modalComment.addEventListener('click', async e => {
-                const postElement =
-                  e.currentTarget.closest('.posting-container');
-                const postingId = postElement.getAttribute('data-post-id');
+                modalComment.addEventListener('click', async e => {
+                  const postElement =
+                    e.currentTarget.closest('.posting-container');
+                  const postingId = postElement.getAttribute('data-post-id');
 
-                console.log('폿팅 아이디', postingId);
+                  console.log('폿팅 아이디', postingId);
 
-                const res = await fetch('../comment.json');
-                const commentData = await res.json();
+                  const res = await fetch('../comment.json');
+                  const commentData = await res.json();
 
-                commentModal.innerHTML = '';
-                commentModal.style.display = 'flex';
+                  commentModal.innerHTML = '';
+                  commentModal.style.display = 'flex';
 
-                const showData = commentData.filter(
-                  v => v.postId === Number(postingId),
-                );
+                  const showData = commentData.filter(
+                    v => v.postId === Number(postingId),
+                  );
 
-                const headerHTML = `
+                  const headerHTML = `
                       <header class="modal-header" id="closeModal">
           <div class="modal-underbar"></div>
           <h3>댓글</h3>
         </header>`;
 
-                const footerHtml = `
+                  const footerHtml = `
         <footer class="modal-footer">
           <img class="profile_img" id="userData_profile_img" alt="사용자 프로필" />
           <input placeholder="댓글 입력하기..." />
@@ -177,28 +179,33 @@ async function postingData() {
         </footer>
       `;
 
-                const headerElement = document.createElement('div');
-                headerElement.innerHTML = headerHTML;
-                commentModal.appendChild(headerElement);
+                  const headerElement = document.createElement('div');
+                  headerElement.innerHTML = headerHTML;
+                  commentModal.appendChild(headerElement);
 
-                if (showData.length === 0) {
-                  const noCommentHTML = `
+                  if (showData.length === 0) {
+                    const noCommentHTML = `
                     <div class="no-comments">
                       <h2>아직 댓글이 없습니다</h2>
                       <p>댓글을 남겨보세요</p>
                     </div>
                   `;
-                  const noCommentElement = document.createElement('div');
-                  noCommentElement.innerHTML = noCommentHTML;
-                  commentModal.appendChild(noCommentElement);
+                    const noCommentElement = document.createElement('div');
+                    noCommentElement.innerHTML = noCommentHTML;
+                    commentModal.appendChild(noCommentElement);
 
-                  const footerElement = document.createElement('div');
-                  footerElement.innerHTML = footerHtml;
-                  commentModal.appendChild(footerElement);
-                }
+                    const footerElement = document.createElement('div');
+                    footerElement.innerHTML = footerHtml;
+                    commentModal.appendChild(footerElement);
+                  }
 
-                showData.forEach(item => {
-                  const commentHTML = `
+                  showData
+                    .sort(
+                      (a, b) =>
+                        new Date(b.post.timestamp) - new Date(a.post.timestamp),
+                    )
+                    .forEach(item => {
+                      const commentHTML = `
                 
                   <main class="modal-main">
                     <div class="modal-comments">
@@ -234,16 +241,16 @@ async function postingData() {
             
                           `;
 
-                  const commentElement = document.createElement('div');
-                  commentElement.innerHTML = commentHTML;
-                  commentModal.appendChild(commentElement);
+                      const commentElement = document.createElement('div');
+                      commentElement.innerHTML = commentHTML;
+                      commentModal.appendChild(commentElement);
 
-                  const footerElement = document.createElement('div');
-                  footerElement.innerHTML = footerHtml;
-                  commentModal.appendChild(footerElement);
+                      const footerElement = document.createElement('div');
+                      footerElement.innerHTML = footerHtml;
+                      commentModal.appendChild(footerElement);
+                    });
                 });
               });
-            });
 
             loadingbar.style.display = 'none';
           } else {

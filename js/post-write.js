@@ -23,6 +23,6 @@ const upload_post = () => {
 document.getElementById('write-submit-btn').addEventListener('click', () => {
   const msg = confirm('정말로 업로드 하시겠습니까?');
   if (msg) {
-    window.location.href = '../join-page.html';
+    window.location.href = '../main-page.html';
   }
 });

@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <meta name="referrer" content="no-referrer" />
-    <meta name="referrer" content="origin" />
-    <meta name="referrer" content="unsafe-url" />
-    <meta name="referrer" content="strict-origin" /> -->
-
     <title>Join Page</title>
     <link rel="stylesheet" href="../css/join-page.css" />
     <link rel="stylesheet" href="../css/index.css" />
+    <link
+      data-default-icon="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png"
+      rel="icon"
+      sizes="192x192"
+      href="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" />
   </head>
   <body>
     <main>
@@ -58,12 +58,14 @@
             업로드했을 수도 있습니다.
             <a href="" target="_blank" class="input-atag">더 알아보기</a>
           </span>
-          <button type="button" class="join-btn" id="join-btn">가입</button>
+          <button type="button" class="join-btn" id="join-btn" disabled>
+            가입
+          </button>
         </form>
       </section>
       <div class="main-footer">
         <span>계정이 있으신가요?</span>
-        <a href="">로그인</a>
+        <a href="./login.html">로그인</a>
       </div>
     </main>
 
@@ -87,7 +89,6 @@
       <div>
         <a href="#">개인정보처리방침</a> <a href="#">약관</a>
         <a href="#">위치</a> <a href="#">Instagram Lite</a>
-        <a href="#">Threads</a>
       </div>
       <div>
         <a href="#">연락처</a>
@@ -98,6 +99,6 @@
 
       <div class="footer-footer">한국어 © 2025 Instagram from Meta</div>
     </footer>
-    <script src="../js/joinup.js"></script>
+    <script src="../js/users/joinup.js"></script>
   </body>
 </html>

@@ -14,7 +14,7 @@
   {
     "postId": 1,
     "user": {
-      "profileImage": "https://velog.velcdn.com/...",
+      "profileImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzKVwAOILVzJ817q-UmEWn3nJe54mLqPjyA&s",
       "nickname": "사용자456"
     },
     "post": {
@@ -26,7 +26,7 @@
   {
     "postId": 2,
     "user": {
-      "profileImage": "https://velog.velcdn.com/...",
+      "profileImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzKVwAOILVzJ817q-UmEWn3nJe54mLqPjyA&s",
       "nickname": "사용자456"
     },
     "post": {
@@ -38,13 +38,37 @@
   {
     "postId": 3,
     "user": {
-      "profileImage": "https://velog.velcdn.com/...",
+      "profileImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzKVwAOILVzJ817q-UmEWn3nJe54mLqPjyA&s",
       "nickname": "사용자456"
     },
     "post": {
       "comments": "첫 번째 댓글입니다!",
       "headerBoolean": true,
       "timestamp": "2023-03-06T14:00:00Z"
+    }
+  },
+  {
+    "postId": 10,
+    "user": {
+      "profileImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzKVwAOILVzJ817q-UmEWn3nJe54mLqPjyA&s",
+      "nickname": "사용자456"
+    },
+    "post": {
+      "comments": "첫 번째 댓글입니다!",
+      "headerBoolean": true,
+      "timestamp": "2025-03-06T14:00:00Z"
+    }
+  },
+  {
+    "postId": 10,
+    "user": {
+      "profileImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzKVwAOILVzJ817q-UmEWn3nJe54mLqPjyA&s",
+      "nickname": "사용자457"
+    },
+    "post": {
+      "comments": "두 번째 댓글입니다!",
+      "headerBoolean": true,
+      "timestamp": "2025-03-06T19:00:00Z"
     }
   }
 ]
