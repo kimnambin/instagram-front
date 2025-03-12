@@ -65,12 +65,6 @@ input[type='file']::-webkit-photo-upload-button {
   transform: translate(-50%, -50%);
 }
 
-.write-ptoto-area {
-  width: 90%;
-  max-height: calc(100% * 0.5);
-  border: 1px solid black;
-}
-
 .write-submit-btn {
   display: inline-block;
   background-color: rgb(0, 149, 246);
@@ -84,7 +78,7 @@ input[type='file']::-webkit-photo-upload-button {
   margin: 0 auto;
   max-width: 90%;
   position: fixed;
-  bottom: 130px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
 }

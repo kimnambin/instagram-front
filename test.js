@@ -1,5 +1,5 @@
 export default function createPostingHTML(item) {
-  return `
+  const htmlString = `
     <div class="posting-container" data-post-id="${
       item.id
     }" style="max-width:580px">
@@ -55,4 +55,90 @@ export default function createPostingHTML(item) {
       </footer>
     </div>
   `;
+
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlString;
+
+  const slide = tempDiv.querySelector('.slide');
+  const prevBtn = tempDiv.querySelector('.slide_prev_button');
+  const nextBtn = tempDiv.querySelector('.slide_next_button');
+  const pagination = tempDiv.querySelector('.slide_pagination');
+
+  slide.querySelectorAll('.slide_item').forEach(item => item.remove());
+  pagination.innerHTML = '';
+
+  // 슬라이드 이미지 추가
+  item.post.images.forEach(v => {
+    const postingImg = document.createElement('div');
+    postingImg.classList.add('slide_item');
+    postingImg.style.backgroundImage = `url(${v})`;
+    postingImg.style.backgroundSize = 'cover';
+    postingImg.style.backgroundPosition = 'center';
+    postingImg.style.width = '100%';
+    slide.appendChild(postingImg);
+  });
+
+  let currSlide = 0;
+
+  // 페이지네이션
+  item.post.images.forEach((_, index) => {
+    const li = document.createElement('li');
+    li.textContent = '•';
+    if (index === 0) li.classList.add('active');
+    pagination.appendChild(li);
+  });
+
+  function updateSlidePosition() {
+    const offset = -currSlide * 100;
+    const slideItems = slide.querySelectorAll('.slide_item');
+    slideItems.forEach(i => {
+      i.style.transform = `translateX(${offset}%)`;
+    });
+
+    const paginationItems = pagination.querySelectorAll('li');
+    paginationItems.forEach(i => i.classList.remove('active'));
+    paginationItems[currSlide].classList.add('active');
+  }
+
+  function nextMove() {
+    currSlide = (currSlide + 1) % item.post.images.length;
+    updateSlidePosition();
+  }
+
+  function prevMove() {
+    currSlide =
+      (currSlide - 1 + item.post.images.length) % item.post.images.length;
+    updateSlidePosition();
+  }
+
+  nextBtn.addEventListener('click', nextMove);
+  prevBtn.addEventListener('click', prevMove);
+
+  const paginationItems = pagination.querySelectorAll('li');
+  paginationItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      currSlide = index;
+      updateSlidePosition();
+    });
+  });
+
+  let startPoint = 0;
+  slide.addEventListener('mousedown', e => {
+    startPoint = e.pageX;
+  });
+
+  slide.addEventListener('mouseup', e => {
+    const endPoint = e.pageX;
+    if (startPoint < endPoint) {
+      prevMove();
+    } else if (startPoint > endPoint) {
+      nextMove();
+    }
+  });
+
+  updateSlidePosition();
+
+  // document.body.appendChild(tempDiv);
+
+  return tempDiv.innerHTML;
 }

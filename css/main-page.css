@@ -31,8 +31,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  width: 100vw;
 }
 
 .posting-header {
