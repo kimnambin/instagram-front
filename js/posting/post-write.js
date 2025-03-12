@@ -20,9 +20,11 @@ const upload_post = () => {
   //POST 메소드
 };
 
-document.getElementById('write-submit-btn').addEventListener('click', () => {
+document.getElementById('write-submit-btn').addEventListener('click', e => {
+  e.preventDefault();
   const msg = confirm('정말로 업로드 하시겠습니까?');
   if (msg) {
+    console.log(msg);
     window.location.href = '../main-page.html';
   }
 });

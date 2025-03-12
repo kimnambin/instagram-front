@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/main-page.css" />
-    <link rel="stylesheet" href="../css/comment-modal.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
     <link
       data-default-icon="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png"
       rel="icon"
@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- ========상단 로고 부분============= -->
-    <header class="header" id="closeModal">
+    <header class="header" id="close">
       <svg
         aria-label="Instagram"
         class="x1lliihq x1n2onr6 x5n08af"
@@ -86,18 +86,24 @@
 
     <!-- ========메인 콘텐츠============= -->
     <main id="posting">
-      <!-- ========개별 폿팅 내용============= -->
-      <!-- <div class="posting-container"></div> -->
-
       <!-- ========댓글============= -->
       <div
         id="modalContainer"
         class="modalContainer"
         style="display: none; max-width: 580px"></div>
 
+      <!-- ===============좋아요================ -->
+      <div
+        id="likes_modalContainer"
+        class="likes_modalContainer"
+        style="display: none; max-width: 580px"></div>
+
       <div id="loading" style="display: none">Loading...</div>
     </main>
     <script src="../components/get-user-data.js"></script>
-    <script src="../js/main-page.js"></script>
+    <script type="module" src="../js/posting/main-page.js"></script>
+    <script type="module" src="../js/posting/posting-list.js"></script>
+    <script type="module" src="../js/posting/comment-list.js"></script>
+    <script type="module" src="../js/posting/likes-list.js"></script>
   </body>
 </html>

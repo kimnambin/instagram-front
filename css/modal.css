@@ -17,8 +17,35 @@
   overflow-y: auto;
 }
 
-.modalContainer::-webkit-scrollbar {
+.modalContainer ::-webkit-scrollbar {
   display: none;
+}
+
+.likes_modalContainer {
+  display: none;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  z-index: 100;
+  background-color: white;
+  height: 90vh;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.likes_modalContainer * {
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.likes_modalContainer img {
+  image-rendering: auto;
+  object-fit: cover;
 }
 
 .modal-header {
@@ -28,12 +55,40 @@
   justify-content: center;
   margin-top: 10px;
   border-bottom: 1px solid rgb(219, 219, 219);
+  position: relative;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  border-top-left-radius: 72px;
+  border-top-right-radius: 72px;
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+.modal-header-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-underbar {
   background-color: rgb(219, 219, 219);
   width: 10%;
   margin: 0;
+  height: 5px;
+}
+
+.modal-underbar-likes {
+  background-color: rgb(219, 219, 219);
+  width: 10%;
+  margin: 20px 0 0 0;
   height: 5px;
 }
 
@@ -133,4 +188,62 @@ footer input {
   transform: translate(-50%, -50%);
   text-align: center;
   width: 90%;
+}
+
+.profile_img_comment {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: silver;
+  margin-right: 5px;
+}
+
+.modal-likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.likes-nickname {
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.follow-btn {
+  background-color: rgba(0, 149, 246, 0.8);
+  color: white;
+  padding: 7px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  width: 30%;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 12px;
+}
+
+.search-container input {
+  width: 100%;
+  padding-left: 30px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-container svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }
