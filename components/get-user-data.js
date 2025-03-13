@@ -5,7 +5,7 @@ const getUser = async () => {
   if (!ok) {
     window.localStorage.removeItem('id');
 
-    window.location.href = './login.html';
+    // window.location.href = './login.html';
   } else {
     //TODO : 특정 회원 정보 불러오기
     const res = await fetch(`http://localhost:7777/getUserById/${ok}`, {

@@ -12,7 +12,8 @@
       ],
       "videos": ["https://www.example.com/video1.mp4"],
       "title": "게시글 제목입니다 1",
-      "timestamp": "2023-03-05T12:34:56Z"
+      "timestamp": "2023-03-05T12:34:56Z",
+      "likes": 25
     }
   },
   {
@@ -28,7 +29,8 @@
       ],
       "videos": ["https://www.example.com/video2.mp4"],
       "title": "게시글 제목입니다 2",
-      "timestamp": "2023-03-06T12:34:56Z"
+      "timestamp": "2023-03-06T12:34:56Z",
+      "likes": 15
     }
   },
   {
@@ -44,7 +46,8 @@
       ],
       "videos": ["https://www.example.com/video3.mp4"],
       "title": "게시글 제목입니다 3",
-      "timestamp": "2023-03-07T12:34:56Z"
+      "timestamp": "2023-03-07T12:34:56Z",
+      "likes": 30
     }
   },
   {
@@ -60,7 +63,8 @@
       ],
       "videos": ["https://www.example.com/video4.mp4"],
       "title": "게시글 제목입니다 4",
-      "timestamp": "2023-03-08T12:34:56Z"
+      "timestamp": "2023-03-08T12:34:56Z",
+      "likes": 5
     }
   },
   {
@@ -76,7 +80,8 @@
       ],
       "videos": ["https://www.example.com/video5.mp4"],
       "title": "게시글 제목입니다 5",
-      "timestamp": "2023-03-09T12:34:56Z"
+      "timestamp": "2023-03-09T12:34:56Z",
+      "likes": 20
     }
   },
   {
@@ -92,7 +97,8 @@
       ],
       "videos": ["https://www.example.com/video6.mp4"],
       "title": "게시글 제목입니다 6",
-      "timestamp": "2023-03-10T12:34:56Z"
+      "timestamp": "2023-03-10T12:34:56Z",
+      "likes": 12
     }
   },
   {
@@ -108,7 +114,8 @@
       ],
       "videos": ["https://www.example.com/video7.mp4"],
       "title": "게시글 제목입니다 7",
-      "timestamp": "2023-03-11T12:34:56Z"
+      "timestamp": "2023-03-11T12:34:56Z",
+      "likes": 8
     }
   },
   {
@@ -124,7 +131,8 @@
       ],
       "videos": ["https://www.example.com/video8.mp4"],
       "title": "게시글 제목입니다 8",
-      "timestamp": "2023-03-12T12:34:56Z"
+      "timestamp": "2023-03-12T12:34:56Z",
+      "likes": 18
     }
   },
   {
@@ -140,7 +148,8 @@
       ],
       "videos": ["https://www.example.com/video9.mp4"],
       "title": "게시글 제목입니다 9",
-      "timestamp": "2023-03-13T12:34:56Z"
+      "timestamp": "2023-03-13T12:34:56Z",
+      "likes": 22
     }
   },
   {
@@ -158,7 +167,8 @@
       ],
       "videos": ["https://www.example.com/video10.mp4"],
       "title": "게시글 제목입니다 10",
-      "timestamp": "2023-03-14T12:34:56Z"
+      "timestamp": "2023-03-14T12:34:56Z",
+      "likes": 35
     }
   }
 ]
