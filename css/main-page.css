@@ -23,7 +23,7 @@ main {
   justify-content: center;
   align-content: center;
   margin-top: 20px;
-  width: 100%;
+  max-width: 100%;
   flex-wrap: wrap;
 }
 

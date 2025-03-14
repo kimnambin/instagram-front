@@ -1,4 +1,4 @@
-export default function createPostingHTML(item) {
+export default function createPostingHTML(item, likeCount) {
   return `
     <div class="posting-container" data-post-id="${
       item.id
@@ -35,7 +35,7 @@ export default function createPostingHTML(item) {
             <p id='like_cnt' class='like_cnt'>${item.post.likes}</p>
             <svg id='modalComment' aria-label="댓글 달기" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
               <path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-               <p  class='like_cnt'>${item.post.likes}</p>
+               <p  class='like_cnt'>${likeCount}</p>
             </svg>
             <svg aria-label="공유하기" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
               <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line>

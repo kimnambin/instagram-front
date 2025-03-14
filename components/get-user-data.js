@@ -1,6 +1,6 @@
 // 로그인 한 사용자 정보를 가져오는 부분
 
-const getUser = async () => {
+export default async function getUser() {
   const ok = localStorage.getItem('id');
   if (!ok) {
     window.localStorage.removeItem('id');
@@ -16,7 +16,8 @@ const getUser = async () => {
     });
     const showData = await res.json();
     console.log(showData.userData.email);
+    // TDOD : 프로필 사진도 받아오기
   }
-};
+}
 
 document.addEventListener('DOMContentLoaded', getUser);

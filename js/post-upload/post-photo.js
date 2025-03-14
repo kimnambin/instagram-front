@@ -16,18 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Blob URL 생성 (DB에 저장용)
         const blobUrl = URL.createObjectURL(file);
 
-        // 처리 후 post_arr에 추가
         reader.onloadend = () => {
           let fileData;
 
           if (file.type.includes('video')) {
-            // 비디오는 서버에 저장하기!!
-            // const formData = new FormData();
-            // formData.append('file', file);
-            // fetch('/', {
-            //   method: 'POST',
-            //   body: formData,
-            // });
+            fileData = {
+              url: blobUrl,
+              type: file.type,
+            };
           } else {
             const base64data = reader.result;
             fileData = {
