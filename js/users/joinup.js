@@ -1,6 +1,6 @@
 const email = document.getElementById('join_email');
 const pw = document.getElementById('join_pw');
-const name = document.getElementById('join_name');
+const inputName = document.getElementById('join_name');
 const username = document.getElementById('join_username');
 const join_btn = document.getElementById('join-btn');
 
@@ -11,7 +11,7 @@ const handleInput = () => {
   if (
     email.value.length > 0 &&
     pw.value.length > 0 &&
-    name.value.length > 0 &&
+    inputName.value.length > 0 &&
     username.value.length > 0
   ) {
     join_btn.disabled = false;
@@ -25,8 +25,8 @@ const handleInput = () => {
 };
 
 const submit = async () => {
-  join_btn.addEventListener('click', async () => {
-    const req = await fetch('http://localhost:7777/joinup', {
+  try {
+    const req = await fetch('http://192.168.55.176:7777/join', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,10 +34,12 @@ const submit = async () => {
       body: JSON.stringify({
         email: email.value,
         password: pw.value,
-        name: name.value,
+        name: inputName.value,
         user_name: username.value,
       }),
     });
+
+    console.log('서버 응답 상태:', req.status);
 
     if (req.ok) {
       const user_data = await req.json();
@@ -46,12 +48,13 @@ const submit = async () => {
       const error = await req.json();
       console.error('회원가입 실패:', error.message);
     }
-  });
+  } catch (error) {
+    console.error('네트워크 오류:', error);
+  }
 };
 
+join_btn.addEventListener('click', submit);
 email.addEventListener('input', handleInput);
 pw.addEventListener('input', handleInput);
-name.addEventListener('input', handleInput);
+inputName.addEventListener('input', handleInput);
 username.addEventListener('input', handleInput);
-
-submit();

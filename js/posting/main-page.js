@@ -5,6 +5,7 @@ import showComments from './comment-list.js';
 import showLikes from './likes-list.js';
 
 async function postingData() {
+  let user_id = 1;
   try {
     // TODO : get-user-id에서 user_id 받아오기
     const req = await fetch(
