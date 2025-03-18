@@ -25,8 +25,9 @@ const handleInput = () => {
 };
 
 const submit = async () => {
+  console.log(email.value);
   try {
-    const req = await fetch('http://192.168.55.176:7777/join', {
+    const req = await fetch('http://localhost:7777/joinup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,6 +45,10 @@ const submit = async () => {
     if (req.ok) {
       const user_data = await req.json();
       console.log(user_data);
+      const msg = confirm('로그인하러 가기');
+      if (msg) {
+        window.location.href = 'login.html';
+      }
     } else {
       const error = await req.json();
       console.error('회원가입 실패:', error.message);

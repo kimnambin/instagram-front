@@ -3,7 +3,7 @@ export default async function showComments(event) {
   const postingId = postElement.getAttribute('data-post-id');
   const commentModal = document.getElementById('modalContainer');
 
-  // 포스팅 가져오는 로직
+  // 게시글에 있는 댓글 가져오기
   const res = await fetch(`http://localhost:7777/comments/${post_id}`, {
     method: 'GET',
     headers: {
