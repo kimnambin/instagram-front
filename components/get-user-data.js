@@ -1,5 +1,6 @@
 // 로그인 한 사용자 정보를 가져오는 부분
 
+// TODO : 로그인한 사용자 정보 가져오는 로직 추가
 export default async function getUser() {
   const ok = localStorage.getItem('id');
   if (!ok) {
@@ -7,7 +8,6 @@ export default async function getUser() {
 
     // window.location.href = './login.html';
   } else {
-    //TODO : 특정 회원 정보 불러오기
     const res = await fetch(`http://localhost:7777/getUserById/${ok}`, {
       method: 'GET',
       headers: {

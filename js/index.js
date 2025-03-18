@@ -1,8 +1,7 @@
-// //로그인 상태 확인하여 화면 이const checkLogin = () => {
+// //로그인 상태 확인하여 화면 이동
 const ok = localStorage.getItem('id');
 console.log(ok);
 if (!ok) {
-  //임시로 회원가입 페이지
   window.location.href = './pages/login.html';
 } else {
   window.location.href = './pages/main-page.html';

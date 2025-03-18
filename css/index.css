@@ -13,7 +13,7 @@ a {
   text-decoration: none;
 }
 
-.bottomBar_Container {
+.bottom-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,17 +27,11 @@ a {
   height: 50px;
   border-top: 1px solid silver;
   background-color: white;
-  z-index: 100;
+  z-index: 300;
 }
 
-.upload_img {
-  margin-bottom: -7.5px;
-}
-
-.user_profile_img {
-  width: 43px;
-  height: 43px;
-  border-radius: 50%;
-  border: 1px solid black;
-  margin-bottom: -7.5px;
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }

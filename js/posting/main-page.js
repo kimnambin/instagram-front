@@ -36,6 +36,7 @@ async function postingData() {
 
   // =======================================
   try {
+    // TODO : 실제로 받아와야 함
     const response = await fetch('../test.json');
     const data = await response.json();
     const container = document.getElementById('posting');

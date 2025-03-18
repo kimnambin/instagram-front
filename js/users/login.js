@@ -6,6 +6,8 @@ document
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
+    // 승우님 API (로그인 예시인데 다른 부분도 이런식으로 하면 돼요)
+    // http://localhost:7777/login <- 이건 실제 해당하는 주소로 변경 필요
     const req = await fetch('http://localhost:7777/login', {
       method: 'POST',
       headers: {
