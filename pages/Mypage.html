@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile</title>
+    <link rel="stylesheet" href="../css/Mypage.css">
+    <script defer src="../js/Mypage.js"></script>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="../images/default-profile.jpg" alt="Default Profile Picture" class="profile-pic">
+            <div class="profile-info">
+                <h2 class="username">new_user</h2>
+                <button class="follow-btn">팔로우</button>
+                <button class="profile-edit-btn">프로필 편집</button>
+                <div class="stats">
+                    <span>게시물 <b>1</b></span>
+                    <span>팔로워 <b>0</b></span>
+                    <span>팔로우 <b>0</b></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-highlights">
+            <div class="highlight add-new">+</div>
+            <p class="highlight-text">신규</p>
+        </div>
+
+        <hr class="profile-divider">
+
+        <div class="posts">
+            <!-- 게시물 클릭 시 디테일 페이지로 이동 -->
+            <a href="../pages/postdetail.html">  
+                <img src="../images/jp.avif" alt="게시물 이미지" class="post-img">
+            </a>
+        </div>
+    </div>
+
+    <!-- 하단바 -->
+    <div class="bottom-nav">
+        <a href="../pages/main-page.html">
+            <img src="../images/home/main.png" alt="홈" class="nav-icon">
+        </a>
+        <img src="../images/home/ta.png" alt="돋보기" class="nav-icon">
+        <a href="../pages/post-upload-page/photo.html">
+            <img src="../images/home/plus.png" alt="게시물 작성" class="nav-icon">
+        </a>
+        <img src="../images/home/mm.png" alt="릴스" class="nav-icon">
+        <a href="../pages/Mypage.html">
+            <img src="../images/home/my.png" alt="마이페이지" class="nav-icon">
+        </a>
+    </div>
+</body>
+</html>
