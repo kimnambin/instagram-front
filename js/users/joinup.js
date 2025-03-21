@@ -27,7 +27,7 @@ const handleInput = () => {
 const submit = async () => {
   console.log(email.value);
   try {
-    const req = await fetch('http://localhost:7777/joinup', {
+    const req = await fetch('http://13.217.186.188:7777/user/join', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const submit = async () => {
         email: email.value,
         password: pw.value,
         name: inputName.value,
-        user_name: username.value,
+        username: username.value,
       }),
     });
 
