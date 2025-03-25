@@ -25,6 +25,7 @@
   height: 300px;
   flex-shrink: 0;
   transition: left 0.15s;
+  object-fit: cover;
 }
 
 .slide_button {
