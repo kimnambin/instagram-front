@@ -46,6 +46,7 @@ input[type='file']::-webkit-photo-upload-button {
   justify-content: flex-start;
   width: 100%;
   margin: 0 0 40px 5%;
+  z-index: 1000;
 }
 
 .write-h1 {
@@ -60,7 +61,7 @@ input[type='file']::-webkit-photo-upload-button {
   width: 100%;
   margin: 0 auto;
   position: relative;
-  top: 40%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -78,7 +79,7 @@ input[type='file']::-webkit-photo-upload-button {
   margin: 0 auto;
   max-width: 90%;
   position: fixed;
-  bottom: 40px;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
 }

@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
           Array.from(files).forEach(file => {
             // 파일 데이터 객체를 생성
             let fileData = {
-              name: file.name, // 파일 이름
-              type: file.type, // 파일 타입
-              size: file.size, // 파일 크기
+              type: file.type,
+              // url: URL.createObjectURL(file),
+              url: file.name,
             };
             post_arr.push(fileData);
 
@@ -52,26 +52,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-//   let storedItem = localStorage.getItem('uploadedFiles');
-//   if (storedItem) {
-//     try {
-//       let parsedData = JSON.parse(storedItem);
-//       console.log('로컬스토리지에서 가져온 데이터:', parsedData);
-
-//       if (
-//         Array.isArray(parsedData) &&
-//         parsedData.length > 0 &&
-//         parsedData[0].data
-//       ) {
-//         uploadedFiles = parsedData[0].data;
-//       } else {
-//         console.error('데이터 구조가 예상과 다름:', parsedData);
-//         uploadedFiles = [];
-//       }
-//     } catch (error) {
-//       console.error('JSON 파싱 오류:', error);
-//       uploadedFiles = [];
-//     }
-//   }
-// });
