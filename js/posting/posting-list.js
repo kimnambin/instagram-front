@@ -1,31 +1,86 @@
-export default async function createPostingHTML(item, images) {
-  return `
-    <div class="posting-container" data-post-id="${
-      item.id
-    }" style="max-width:580px">
-      <header class="posting-header">
-        <div class="posting-header-left">
-          <img class="profile_img" src="https://www.studiopeople.kr/common/img/default_profile.png" alt="사용자 프로필" />
-          <h3>${item.user_id}</h3>
-        </div>
-        <svg aria-label="옵션 더 보기" fill="currentColor" height="24" viewBox="0 0 24 24" width="24"
-          id = 'post_put'
-        >
-          <circle cx="12" cy="12" r="1.5"></circle>
-          <circle cx="6" cy="12" r="1.5"></circle>
-          <circle cx="18" cy="12" r="1.5"></circle>
-        </svg>
-      </header>
+export default async function createPostingHTML(item) {
+  async function postData() {
+    try {
+      // 게시글 상세 조회
+      const req = await fetch(`http://13.217.186.188:7777/posts/${item.id}`, {
+        method: 'GET',
+      });
 
-      <div class="slide slide_wrap">
-       ${images}
-        <div class="slide_prev_button slide_button">◀</div>
-        <div class="slide_next_button slide_button">▶</div>
-      </div>
-      <ul class="slide_pagination">
-        <li>•</li>
-      </ul>
-      <footer class="posting-footer">
+      if (!req.ok) {
+        throw new Error('게시글 조회 실패');
+      }
+
+      const data = await req.json();
+      const images = data.contents.map(v => v.url);
+      // console.log('게시글 상세 조회', images);
+
+      let currSlide = 0;
+
+      // 좋아요 개수 조회
+      const likeAPI = await fetch(
+        `http://13.217.186.188:7777/likes/${item.id}`,
+        {
+          method: 'GET',
+        },
+      );
+
+      if (!likeAPI.ok) {
+        throw new Error('좋아요 조회 실패');
+      }
+
+      const likeCount = await likeAPI.json();
+      // console.log('좋아요 수:', likeCount);
+
+      return {images, likeCount};
+    } catch (e) {
+      console.error('Error in postData:', e);
+      return null;
+    }
+  }
+
+  const result = await postData();
+  // console.log('결과:', result);
+
+  if (result) {
+    const {images, likeCount} = result;
+
+    const postingHTML = ` 
+      <div class="posting-container" data-post-id="${
+        item.id
+      }" style="max-width:580px">
+        <header class="posting-header">
+          <div class="posting-header-left">
+            <img class="profile_img" src="https://www.studiopeople.kr/common/img/default_profile.png" alt="사용자 프로필" />
+            <h3>${item.user_id}</h3>
+          </div>
+          <svg aria-label="옵션 더 보기" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" id='post_put'>
+            <circle cx="12" cy="12" r="1.5"></circle>
+            <circle cx="6" cy="12" r="1.5"></circle>
+            <circle cx="18" cy="12" r="1.5"></circle>
+          </svg>
+        </header>
+
+        <div class="slide slide_wrap">
+          ${images
+            .map(
+              url => `
+            <div class="slide_item" style="background-image: url(${url}); background-size: cover; background-position: center; width: 100%; aspect-ratio: 4 / 5;"></div>`,
+            )
+            .join('')}
+          <div class="slide_prev_button slide_button">◀</div>
+          <div class="slide_next_button slide_button">▶</div>
+        </div>
+
+        <ul class="slide_pagination">
+          ${images
+            .map(
+              (_, index) => `
+            <li class="${index === 0 ? 'active' : ''}">•</li>`,
+            )
+            .join('')}
+        </ul>
+
+           <footer class="posting-footer">
         <header class="posting-footer-header">
           <div class="btn-wrapper">
             <svg id='heart_logo' aria-label="알림" fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
@@ -55,7 +110,10 @@ export default async function createPostingHTML(item, images) {
         <p class="posting-footer-mid">${new Date(
           item.created_at,
         ).toLocaleString()}</p>
-      </footer>
-    </div>
-  `;
+        </footer>
+      </div>
+    `;
+
+    return postingHTML;
+  }
 }

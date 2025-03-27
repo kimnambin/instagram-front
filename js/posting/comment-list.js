@@ -14,10 +14,11 @@ export default async function showComments(event, post_id) {
 
     if (res.ok) {
       const commentData = await res.json();
+
+      console.log('ㅇㅁㄴㅇㅁㄴㅇㄴㅇㄴㅁㅇㄴㅁㅇㄴㅁ', commentData);
       commentModal.innerHTML = '';
       commentModal.style.display = 'flex';
 
-      const showData = commentData.filter(v => v.postId === Number(postingId));
       const headerHTML = `
         <header class="modal-header-comment" id="closeModal">
           <div class="modal-underbar"></div>
@@ -44,7 +45,7 @@ export default async function showComments(event, post_id) {
         commentModal.style.display = 'none';
       });
 
-      if (showData.length === 0) {
+      if (!commentData) {
         const noCommentHTML = `<div class="no-comments"><h2>아직 댓글이 없습니다</h2><p>댓글을 남겨보세요</p></div>`;
         const noCommentElement = document.createElement('div');
         noCommentElement.innerHTML = noCommentHTML;
