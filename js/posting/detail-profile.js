@@ -87,13 +87,13 @@ export default async function get_profile() {
               const detailPosts = await detailRes.json();
               console.log(detailPosts);
 
-              detailPosts.contents.forEach(v => {
-                const postElement = document.createElement('a');
-                postElement.href = '#'; // 페이지 이동 기능 추가 가능
-                const imageUrl = v.url;
-                postElement.innerHTML = `<img src="${imageUrl}" alt="이미지" class="post-img" />`;
-                postsContainer.appendChild(postElement);
-              });
+              // detailPosts.contents.forEach(v => {
+              const postElement = document.createElement('a');
+              postElement.href = '#'; // 페이지 이동 기능 추가 가능
+              const imageUrl = detailPosts.contents[0].url;
+              postElement.innerHTML = `<img src="${imageUrl}" alt="이미지" class="post-img" />`;
+              postsContainer.appendChild(postElement);
+              // });
             }),
         );
       } catch (e) {
