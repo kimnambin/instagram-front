@@ -173,7 +173,8 @@ footer input {
 }
 
 .comment-nickname {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
+  margin-right: 15px;
 }
 
 .comment-timesptamp {

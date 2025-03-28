@@ -5,7 +5,7 @@ export default async function showLikes(e, post_id) {
 
   // TODO : 게시글 당 전체 좋아요 가져오는 로직
   try {
-    const res = await fetch(`/comments/${post_id}`);
+    const res = await fetch(`http://13.217.186.188:7777/likes/${post_id}`);
     const likesData = await res.json();
     likes_modalContainer.innerHTML = '';
     likes_modalContainer.style.display = 'flex';

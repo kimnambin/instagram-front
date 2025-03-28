@@ -1,4 +1,4 @@
-export default async function showComments(event, post_id) {
+export default async function showComments(event, post_id, ok) {
   const postElement = event.currentTarget.closest('.posting-container');
   const postingId = postElement.getAttribute('data-post-id');
   const commentModal = document.getElementById('modalContainer');
@@ -15,7 +15,6 @@ export default async function showComments(event, post_id) {
     if (res.ok) {
       const commentData = await res.json();
 
-      console.log('ㅇㅁㄴㅇㅁㄴㅇㄴㅇㄴㅁㅇㄴㅁㅇㄴㅁ', commentData);
       commentModal.innerHTML = '';
       commentModal.style.display = 'flex';
 
@@ -26,7 +25,7 @@ export default async function showComments(event, post_id) {
         </header>`;
       const footerHtml = `
         <footer class="modal-footer">
-          <img class="profile_img" alt="사용자 프로필" />
+          <img class="profile_img" alt="사용자 프로필" src='https://www.studiopeople.kr/common/img/default_profile.png'/>
           <input placeholder="댓글 입력하기..." id="comment_input"/>
           <button id="add_comment_button">
             <svg aria-label="공유하기" fill="currentColor" height="30" viewBox="0 0 24 24" width="30">
@@ -45,16 +44,14 @@ export default async function showComments(event, post_id) {
         commentModal.style.display = 'none';
       });
 
-      if (!commentData) {
+      if (commentData.comments.length === 0) {
         const noCommentHTML = `<div class="no-comments"><h2>아직 댓글이 없습니다</h2><p>댓글을 남겨보세요</p></div>`;
         const noCommentElement = document.createElement('div');
         noCommentElement.innerHTML = noCommentHTML;
         commentModal.appendChild(noCommentElement);
       } else {
-        showData
-          .sort(
-            (a, b) => new Date(b.post.timestamp) - new Date(a.post.timestamp),
-          )
+        commentData.comments
+          .sort((a, b) => new Date(b.id) - new Date(a.id))
           .forEach(item => {
             const commentHTML = createCommentHTML(item);
             const commentElement = document.createElement('div');
@@ -70,27 +67,32 @@ export default async function showComments(event, post_id) {
       const comment_input = document.getElementById('comment_input');
 
       async function add_comment() {
+        const postData = {
+          user_email: ok,
+          body: comment_input.value,
+        };
+
         try {
-          const req = await fetch(`http://localhost:7777/comments/${post_id}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
+          const req = await fetch(
+            `http://13.217.186.188:7777/comments/${post_id}`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(postData),
             },
-            body: JSON.stringify({
-              user_id,
-              body: comment_input.value,
-            }),
-          });
+          );
 
           if (req.ok) {
             const user_data = await req.json();
-            console.log('서버에서 받은 데이터:', user_data);
             // 댓글 추가 후 UI 업데이트
             const commentHTML = createCommentHTML(user_data);
             const commentElement = document.createElement('div');
             commentElement.innerHTML = commentHTML;
             commentModal.appendChild(commentElement);
             comment_input.value = '';
+            location.reload();
           } else {
             alert('업로드에 실패했습니다');
           }
@@ -110,17 +112,14 @@ export default async function showComments(event, post_id) {
       return `
         <main class="modal-main">
           <div class="modal-comments">
-            <img class="profile_img_comment" src="${
-              item.user.profileImage
-            }" alt="사용자 프로필" />
+            <img class="profile_img_comment" src="https://www.studiopeople.kr/common/img/default_profile.png" alt="사용자 프로필" />
             <div class="modal-comments-mid">
               <div class="modal-comments-top">
-                <p class="comment-nickname">${item.user.nickname}</p>
-                <p class="comment-timestamp">${new Date(
-                  item.post.timestamp,
-                ).toLocaleString()}</p>
-              </div>
-              <p class="comments">${item.post.comments}</p>
+                <p class="comment-nickname">${item.user_email}</p>
+                <b></b>
+                <p class="comment-timestamp">${item.created_at.slice(0, 10)}</p>
+              </div> 
+              <p class="comments">${item.body}</p>
             </div>
           </div>
         </main>

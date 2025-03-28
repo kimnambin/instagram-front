@@ -50,7 +50,7 @@ export default async function createPostingHTML(item) {
       }" style="max-width:580px">
         <header class="posting-header">
           <div class="posting-header-left">
-            <img class="profile_img" src="https://www.studiopeople.kr/common/img/default_profile.png" alt="사용자 프로필" />
+            <img class="profile_img" src="https://www.studiopeople.kr/common/img/default_profile.png" alt="사용자 프로필" id='profile'/>
             <h3>${item.user_id}</h3>
           </div>
           <svg aria-label="옵션 더 보기" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" id='post_put'>
