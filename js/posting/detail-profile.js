@@ -1,112 +1,148 @@
+import {getUser} from '../component/get-user-id.js';
+
+async function fetchData(url, errorMessage) {
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'},
+  });
+  if (!res.ok) throw new Error(errorMessage);
+  return res.json();
+}
+
+async function getFollowers(user_id) {
+  return fetchData(
+    `http://13.217.186.188:7777/follow/followers/${user_id}`,
+    '팔로워 목록 가져오기 실패',
+  );
+}
+
+async function getFollows(user_id) {
+  return fetchData(
+    `http://13.217.186.188:7777/follow/following/${user_id}`,
+    '팔로우 목록 가져오기 실패',
+  );
+}
+
+async function getPosts(user_id) {
+  return fetchData(
+    `http://13.217.186.188:7777/posts?user_id=${user_id}`,
+    '게시물 가져오기 실패',
+  );
+}
+
+async function getPostDetails(postId) {
+  return fetchData(
+    `http://13.217.186.188:7777/posts/${postId}`,
+    `게시물 내용 가져오기 실패: ${postId}`,
+  );
+}
+
+async function updateFollowButton(user_id, followBtn, followCnt) {
+  const userToken = localStorage.getItem('userToken');
+
+  // 팔로우 확인용용
+  let isFollowing = followCnt.following.some(v => v.id === user_id);
+  console.log(isFollowing);
+
+  function updateButtonUI() {
+    followBtn.textContent = isFollowing ? '팔로우' : '언팔로우';
+    followBtn.style.backgroundColor = isFollowing ? '#0095f6' : '#dbdbdb';
+  }
+
+  updateButtonUI();
+
+  // TODO : 언팔로우가 안됨
+  followBtn.addEventListener('click', async () => {
+    try {
+      const method = isFollowing ? 'POST' : 'DELETE';
+
+      const followResponse = await fetch(
+        `http://13.217.186.188:7777/follow/follow/${user_id}`,
+        {
+          method,
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${userToken}`,
+          },
+        },
+      );
+      console.log(followResponse);
+
+      if (!followResponse.ok) throw new Error('팔로우/언팔로우 요청 실패');
+
+      isFollowing = !isFollowing;
+      updateButtonUI();
+
+      const followersCountEl = document.getElementById('Followers');
+      const followeringCountEl = document.getElementById('Follow');
+      let currentCount = parseInt(followersCountEl.textContent, 10);
+      let FollowCount = parseInt(followeringCountEl.textContent, 10);
+      followersCountEl.textContent = isFollowing
+        ? currentCount + 1
+        : Math.max(0, currentCount - 1);
+      followeringCountEl.textContent = isFollowing
+        ? FollowCount + 1
+        : Math.max(0, FollowCount - 1);
+    } catch (e) {
+      console.error('팔로우/언팔로우 요청 중 오류 발생:', e);
+    }
+  });
+}
+
+async function postingData(user_id, showData) {
+  console.log(getFollows(user_id));
+  try {
+    const [followerCnt, followCnt, posts] = await Promise.all([
+      getFollowers(user_id),
+
+      getFollows(user_id),
+      getPosts(user_id),
+    ]);
+
+    document.getElementById('username').textContent =
+      showData.username || '사용자 이름';
+    document.getElementById('Followers').textContent =
+      followerCnt.followers.length || 0;
+    document.getElementById('Follow').textContent =
+      followCnt.following.length || 0;
+    document.getElementById('postCnt').textContent = posts.length || '0';
+
+    const postsContainer = document.getElementById('posts-container');
+    postsContainer.innerHTML = '';
+
+    const postDetails = await Promise.all(
+      posts.map(post => getPostDetails(post.id)),
+    );
+
+    postDetails
+      .sort((a, b) => b.id - a.id)
+      .forEach(detailPosts => {
+        const postElement = document.createElement('div');
+        const imageUrl = detailPosts.contents[0]?.url;
+        if (imageUrl) {
+          postElement.innerHTML = `<img src="${imageUrl}" alt="이미지" class="post-img" />`;
+          postsContainer.appendChild(postElement);
+        }
+      });
+
+    const followBtn = document.querySelector('.follow-btn');
+    updateFollowButton(user_id, followBtn, followCnt);
+  } catch (e) {
+    console.error('게시물 가져오기 오류:', e);
+  }
+}
+
 export default async function get_profile() {
   const urlParams = new URLSearchParams(window.location.search);
   const user_id = urlParams.get('user_id');
+  const {showData} = await getUser();
+  if (!showData) return;
 
   try {
-    // 팔로워 목록 조회
-    async function getFollowers() {
-      const res = await fetch(
-        `http://13.217.186.188:7777/follow/followers/${user_id}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      return await res.json(); // followerCnt 직접 반환
-    }
-
-    // 팔로잉 목록 조회
-    async function getFollows() {
-      const res = await fetch(
-        `http://13.217.186.188:7777/follow/following/${user_id}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      return await res.json(); // followCnt 직접 반환
-    }
-
-    // 게시글 가져오기
-    async function postingData() {
-      try {
-        const followerCnt = await getFollowers();
-        const followCnt = await getFollows();
-
-        // showData가 정의되지 않음 → 여기서 데이터를 가져와야 함
-        // const showData = {email}; // 예제 데이터 (실제로는 API에서 가져와야 함)
-
-        // console.log('user Id', showData.email);
-        // console.log('user email', email);
-
-        // 프로필 정보 업데이트
-        document.getElementById('username').textContent =
-          user_id || '사용자 이름';
-
-        document.getElementById('Followers').textContent = followerCnt || 0;
-        document.getElementById('Follow').textContent = followCnt || 0;
-
-        // 사용자 ID를 기반으로 게시물 요청
-        const res = await fetch(
-          `http://13.217.186.188:7777/posts?user_id=${user_id}`,
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          },
-        );
-
-        const posts = await res.json();
-        console.log(posts);
-
-        const postsContainer = document.getElementById('posts-container');
-        postsContainer.innerHTML = '';
-
-        // 해당하는 게시글 찾기!!
-        const postIds = posts.map(post => post.id);
-
-        await Promise.all(
-          postIds
-            .sort((a, b) => b - a) // id 내림차순 정렬
-            .map(async postId => {
-              const detailRes = await fetch(
-                `http://13.217.186.188:7777/posts/${postId}`,
-                {
-                  method: 'GET',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                },
-              );
-
-              const detailPosts = await detailRes.json();
-              console.log(detailPosts);
-
-              // detailPosts.contents.forEach(v => {
-              const postElement = document.createElement('a');
-              postElement.href = '#'; // 페이지 이동 기능 추가 가능
-              const imageUrl = detailPosts.contents[0].url;
-              postElement.innerHTML = `<img src="${imageUrl}" alt="이미지" class="post-img" />`;
-              postsContainer.appendChild(postElement);
-              // });
-            }),
-        );
-      } catch (e) {
-        console.error('게시물 가져오기 오류:', e);
-      }
-    }
-
-    // 함수 실행
-    await postingData();
+    await postingData(user_id, showData);
   } catch (e) {
     console.error('프로필 가져오기 오류:', e);
   }
 }
 
-// 페이지 로드 시 실행
 window.onload = get_profile;

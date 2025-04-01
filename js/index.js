@@ -1,5 +1,4 @@
-// //로그인 상태 확인하여 화면 이동
-const ok = localStorage.getItem('id');
+const ok = localStorage.getItem('userToken');
 console.log(ok);
 if (!ok) {
   window.location.href = './pages/login.html';

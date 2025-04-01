@@ -1,7 +1,9 @@
 import {getUser} from '../component/get-user-id.js';
+import createPostingHTML from './posting-list.js';
 
 async function mypageData() {
   const {showData} = await getUser();
+
   if (!showData) return;
 
   async function getFollowers() {
@@ -13,7 +15,9 @@ async function mypageData() {
           headers: {'Content-Type': 'application/json'},
         },
       );
-      return await res.json();
+      const followerCNT = await res.json();
+
+      return followerCNT.length === 0 ? 0 : followerCNT;
     } catch (e) {
       console.error('팔로워 목록 불러오기 실패:', e);
       return 0;
@@ -29,12 +33,16 @@ async function mypageData() {
           headers: {'Content-Type': 'application/json'},
         },
       );
-      return await res.json();
+      const followCNT = await res.json();
+      return followCNT.length === 0 ? 0 : followCNT;
     } catch (e) {
       console.error('팔로잉 목록 불러오기 실패:', e);
       return 0;
     }
   }
+
+  // 게시글 상세
+  const container = document.getElementById('posting');
 
   async function postingData() {
     const followerCnt = await getFollowers();
@@ -42,8 +50,11 @@ async function mypageData() {
 
     document.getElementById('username').textContent =
       showData.email || '사용자 이름';
-    document.getElementById('Followers').textContent = followerCnt || 0;
-    document.getElementById('Follow').textContent = followCnt || 0;
+
+    document.getElementById('Followers').textContent =
+      followerCnt.followers.length || 0;
+    document.getElementById('Follow').textContent =
+      followCnt.following.length || 0;
 
     try {
       const res = await fetch(
@@ -57,6 +68,8 @@ async function mypageData() {
 
       const postsContainer = document.getElementById('posts-container');
       postsContainer.innerHTML = '';
+
+      const detailPost = document.getElementById('detail-posts-container');
 
       const postIds = posts.map(post => post.id);
 
@@ -74,12 +87,16 @@ async function mypageData() {
               );
               const detailPosts = await detailRes.json();
 
-              // detailPosts.contents.forEach(v => {
-              const postElement = document.createElement('a');
-              postElement.href = '#'; // 페이지 이동 기능 추가 가능
+              document.getElementById('postCnt').textContent =
+                postIds.length || '0';
+
+              // TODO : 여기서 클릭 시 모달창
+              const postElement = document.createElement('div');
               const imageUrl = detailPosts.contents[0].url;
+
               postElement.innerHTML = `<img src="${imageUrl}" alt="이미지" class="post-img" />`;
               postsContainer.appendChild(postElement);
+
               // });
             } catch (e) {
               console.error(`게시글 ${postId} 불러오기 실패:`, e);
@@ -95,39 +112,3 @@ async function mypageData() {
 }
 
 window.onload = mypageData;
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const followBtn = document.querySelector('.follow-btn');
-//   const profileEditBtn = document.querySelector('.profile-edit-btn');
-//   const followerCount = document.querySelector('.stats span:nth-child(2) b'); // 팔로워 수 요소
-
-//   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-//   if (isLoggedIn) {
-//     followBtn.style.display = 'none';
-//     profileEditBtn.style.display = 'inline-block';
-//   } else {
-//     followBtn.style.display = 'inline-block';
-//     profileEditBtn.style.display = 'none';
-
-//     let isFollowing = false;
-
-//     followBtn.addEventListener('click', () => {
-//       // TODO : 승우님 API 필요
-//       isFollowing = !isFollowing;
-//       followBtn.textContent = isFollowing ? '언팔로우' : '팔로우';
-//       followBtn.style.backgroundColor = isFollowing ? '#dbdbdb' : '#0095f6';
-
-//       // 팔로우 상태가 되면 팔로워 수 증가
-//       if (isFollowing) {
-//         let currentCount = parseInt(followerCount.textContent);
-//         followerCount.textContent = currentCount + 1; // 팔로워 수 증가
-//       } else {
-//         let currentCount = parseInt(followerCount.textContent);
-//         followerCount.textContent = currentCount - 1; // 언팔로우 상태일 경우 팔로워 수 감소
-//       }
-//     });
-//   }
-// });
-
-// 팔로워 목록 조회

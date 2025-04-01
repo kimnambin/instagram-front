@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../css/Mypage.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <script defer type="module" src="../js/posting/detail-profile.js"></script>
+    <script type="module" src="../js/posting/posting-list.js"></script>
+    <script type="module" src="../js/posting/detail-profile.js"></script>
+    <script type="module" src="../js/posting/comment-list.js"></script>
+    <script type="module" src="../js/posting/likes-list.js"></script>
   </head>
   <body>
     <div class="profile-container">
@@ -17,24 +21,19 @@
           class="profile-pic" />
         <div class="profile-info">
           <h2 class="username" id="username"></h2>
-          <button class="follow-btn">팔로우</button>
-          <button class="profile-edit-btn">프로필 편집</button>
+          <button class="follow-btn"></button>
           <div class="stats">
-            <span id="postCnt">게시물 <b></b></span>
-            <span id="Followers">팔로워 <b></b></span>
-            <span id="Follow">팔로우 <b></b></span>
+            <span class="postCnt">게시물 <b id="postCnt"></b></span>
+            <span class="postCnt">팔로워 <b id="Followers"></b></span>
+            <span class="postCnt">팔로우 <b id="Follow"></b></span>
           </div>
         </div>
-      </div>
-
-      <div class="story-highlights">
-        <div class="highlight add-new">+</div>
-        <p class="highlight-text">신규</p>
       </div>
 
       <hr class="profile-divider" />
 
       <div class="posts" id="posts-container"></div>
+      <div class="detail-post" id="detail-posts-container"></div>
 
       <!-- 하단바 -->
       <div class="bottom-nav">

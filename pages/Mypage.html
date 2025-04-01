@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../css/index.css" />
     <script type="module" src="../js/component/get-user-id.js"></script>
     <script type="module" src="../js/posting/Mypage.js"></script>
+    <script type="module" src="../js/posting/posting-list.js"></script>
+    <script type="module" src="../js/posting/comment-list.js"></script>
+    <script type="module" src="../js/posting/likes-list.js"></script>
   </head>
   <body>
     <div class="profile-container">
@@ -19,39 +22,32 @@
         <div class="profile-info">
           <h2 class="username" id="username"></h2>
           <div class="stats">
-            <span id="postCnt">게시물 <b></b></span>
-            <span id="Followers">팔로워 <b></b></span>
-            <span id="Follow">팔로우 <b></b></span>
+            <span class="postCnt">게시물 <b id="postCnt"></b></span>
+            <span class="postCnt">팔로워 <b id="Followers"></b></span>
+            <span class="postCnt">팔로우 <b id="Follow"></b></span>
           </div>
         </div>
       </div>
 
-      <div class="story-highlights">
-        <div class="highlight add-new">+</div>
-        <p class="highlight-text">신규</p>
-      </div>
-
       <hr class="profile-divider" />
 
-      <div class="posts" id="posts-container"></div>
+      <div class="detail-post" id="detail-posts-container"></div>
 
-      <!-- 하단바 -->
-      <div class="bottom-nav">
-        <a href="../pages/main-page.html">
-          <img src="../images/home/main.png" alt="홈" class="nav-icon" />
-        </a>
-        <img src="../images/home/ta.png" alt="돋보기" class="nav-icon" />
-        <a href="../pages/post-upload-page/photo.html">
-          <img
-            src="../images/home/plus.png"
-            alt="게시물 작성"
-            class="nav-icon" />
-        </a>
-        <img src="../images/home/mm.png" alt="릴스" class="nav-icon" />
-        <a href="../pages/Mypage.html">
-          <img src="../images/home/my.png" alt="마이페이지" class="nav-icon" />
-        </a>
-      </div>
+      <!-- ===============게시글 모음================ -->
+      <div class="posts" id="posts-container"></div>
+    </div>
+    <div class="bottom-nav">
+      <a href="../pages/main-page.html">
+        <img src="../images/home/main.png" alt="홈" class="nav-icon" />
+      </a>
+      <img src="../images/home/ta.png" alt="돋보기" class="nav-icon" />
+      <a href="../pages/post-upload-page/photo.html">
+        <img src="../images/home/plus.png" alt="게시물 작성" class="nav-icon" />
+      </a>
+      <img src="../images/home/mm.png" alt="릴스" class="nav-icon" />
+      <a href="../pages/Mypage.html">
+        <img src="../images/home/my.png" alt="마이페이지" class="nav-icon" />
+      </a>
     </div>
   </body>
 </html>

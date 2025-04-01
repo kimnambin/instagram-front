@@ -26,6 +26,17 @@ async function postingData() {
     const loadingbar = document.getElementById('loading');
     let page = 0;
 
+    // 마이페이지
+    document.getElementById('mypage').addEventListener('click', () => {
+      event.preventDefault();
+
+      var newPath = `../pages/Mypage.html`;
+
+      this.href = newPath;
+
+      window.location.href = this.href;
+    });
+
     const loadedPostIds = new Set();
 
     const options = {
@@ -49,6 +60,7 @@ async function postingData() {
           }
 
           for (const item of newPosts) {
+            console.log(item);
             if (!loadedPostIds.has(item.id)) {
               loadedPostIds.add(item.id);
               const postingHTML = await createPostingHTML(item);
@@ -112,8 +124,13 @@ async function postingData() {
               // 프로필 보기
               const profile_detail = postElement.querySelector('#profile');
               profile_detail.addEventListener('click', async e => {
-                await get_profile();
-                window.location.href = `./detail-profile.html?user_id=${item.user_id}`;
+                if (showData?.id === item.user_id) {
+                  event.preventDefault();
+                  var newPath = `../pages/Mypage.html`;
+                  window.location.href = newPath;
+                } else {
+                  window.location.href = `./detail-profile.html?user_id=${item.user_id}&user_email=${showData?.email}`;
+                }
               });
 
               // 댓글 목록

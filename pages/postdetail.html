@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>게시물 상세</title>
-    <link rel="stylesheet" href="../css/PostDetail.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/PostDetail.css" />
+  </head>
+  <body>
     <div class="post-detail-container">
-        <!-- 게시물 헤더 -->
-        <div class="post-header">
-            <img src="../images/default-profile.jpg" alt="User Profile" class="profile-pic">
-            <div class="user-info">
-                <h2 class="username">new_user</h2>
-                <span class="post-time">3시간 전</span>
-            </div>
+      <!-- 게시물 헤더 -->
+      <div class="post-header">
+        <img
+          src="../images/default-profile.jpg"
+          alt="User Profile"
+          class="profile-pic" />
+        <div class="user-info">
+          <h2 class="username">new_user</h2>
+          <span class="post-time">3시간 전</span>
         </div>
+      </div>
 
-        
-        <img src="../images/jp.jpg" alt="게시물 이미지" class="post-img">
+      <img src="../images/jp.jpg" alt="게시물 이미지" class="post-img" />
 
-        
-        <div class="post-actions">
-            <button class="like-btn">
-                <img src="../images/har.png" alt="좋아요" class="action-icon">
-            </button>
-            <button class="comment-btn">
-                <img src="../images/dd.jpg" alt="댓글" class="action-icon">
-            </button>
-            <button class="share-btn">
-                <img src="../images/message-icon.png" alt="공유" class="action-icon">
-            </button>
+      <div class="post-actions">
+        <button class="like-btn">
+          <img src="../images/har.png" alt="좋아요" class="action-icon" />
+        </button>
+        <button class="comment-btn">
+          <img src="../images/dd.jpg" alt="댓글" class="action-icon" />
+        </button>
+        <button class="share-btn">
+          <img
+            src="../images/message-icon.png"
+            alt="공유"
+            class="action-icon" />
+        </button>
+      </div>
+
+      <div class="post-caption">
+        <div class="caption-user-info">
+          <span class="caption-username">new_user</span>
+          <p class="caption-text">일본여행!</p>
         </div>
-
-        <div class="post-caption">
-            <div class="caption-user-info">
-                <span class="caption-username">new_user</span>
-                <p class="caption-text">일본여행!</p>
-            </div>
-        </div>
-        
+      </div>
     </div>
 
-    
     <div class="bottom-nav">
-        <a href="../pages/main-page.html">
-            <img src="../images/home/main.png" alt="홈" class="nav-icon">
-        </a>
-        <img src="../images/home/ta.png" alt="돋보기" class="nav-icon">
-        <a href="../pages/post-upload-page/photo.html">
-            <img src="../images/home/plus.png" alt="게시물 작성" class="nav-icon">
-        </a>
-        <img src="../images/home/mm.png" alt="릴스" class="nav-icon">
-        <a href="../pages/Mypage.html">
-            <img src="../images/home/my.png" alt="마이페이지" class="nav-icon">
-        </a>
+      <a href="../pages/main-page.html">
+        <img src="../images/home/main.png" alt="홈" class="nav-icon" />
+      </a>
+      <img src="../images/home/ta.png" alt="돋보기" class="nav-icon" />
+      <a href="../pages/post-upload-page/photo.html">
+        <img src="../images/home/plus.png" alt="게시물 작성" class="nav-icon" />
+      </a>
+      <img src="../images/home/mm.png" alt="릴스" class="nav-icon" />
+      <a href="../pages/Mypage.html">
+        <img src="../images/home/my.png" alt="마이페이지" class="nav-icon" />
+      </a>
     </div>
-
+    <script type="module" src="../js/component/get-user-id.js"></script>
     <script src="../js/PostDetail.js"></script>
-</body>
+  </body>
 </html>

@@ -1,7 +1,7 @@
 document
   .querySelector('.login-form')
   .addEventListener('submit', async function (e) {
-    e.preventDefault(); // 페이지 새로 고침 방지
+    e.preventDefault();
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -21,6 +21,7 @@ document
         const user_data = await req.json();
         console.log(user_data);
         localStorage.setItem('userInfo', username);
+        localStorage.setItem('userToken', user_data.token);
 
         const msg = confirm('로그인 성공!!');
         if (msg) {
