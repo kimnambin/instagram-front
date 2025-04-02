@@ -1,0 +1,160 @@
+.profile-container {
+  width: 100vw;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.profile-pic {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.profile-info {
+  text-align: center;
+  margin-left: 70px;
+}
+
+.username {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.follow-btn,
+.profile-edit-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.follow-btn {
+  background: #0095f6;
+  color: white;
+}
+
+.profile-edit-btn {
+  background: #efefef;
+  color: black;
+  display: none;
+}
+
+.stats {
+  display: flex;
+  text-align: center;
+  gap: 7.5px;
+  margin-top: 10px;
+  font-size: 13.5px;
+  width: 100%;
+}
+
+.story-highlights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 40px;
+  /* margin-bottom: 20px; */
+}
+
+.highlight-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.profile-divider {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  margin: 10px 0 20px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#posts-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.postCnt {
+  display: flex;
+  flex-direction: column;
+}
+
+.posts div {
+  flex: 1 0 calc(33.33% - 10px);
+  box-sizing: border-box;
+}
+
+.posts img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.posts.empty {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  width: 100%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  max-width: 580px;
+  width: 100%;
+  height: 80%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

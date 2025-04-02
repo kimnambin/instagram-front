@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Profile</title>
+    <link rel="stylesheet" href="../css/Mypage.css" />
+    <link rel="stylesheet" href="../css/main-page.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/slider.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <script type="module" src="../js/component/get-user-id.js"></script>
+    <script type="module" src="../js/posting/Mypage.js"></script>
+    <script type="module" src="../js/posting/posting-list.js"></script>
+    <script type="module" src="../js/posting/comment-list.js"></script>
+    <script type="module" src="../js/posting/likes-list.js"></script>
+    <link
+      data-default-icon="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png"
+      rel="icon"
+      sizes="192x192"
+      href="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" />
+  </head>
+  <body>
+    <div class="profile-container">
+      <div class="profile-header">
+        <img
+          src="../images/default-profile.jpg"
+          alt="Default Profile Picture"
+          class="profile-pic" />
+        <div class="profile-info">
+          <h2 class="username" id="username"></h2>
+          <div class="stats">
+            <span class="postCnt">게시물 <b id="postCnt"></b></span>
+            <span class="postCnt">팔로워 <b id="Followers"></b></span>
+            <span class="postCnt">팔로우 <b id="Follow"></b></span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="profile-divider" />
+
+      <!-- ===============게시글 모음================ -->
+      <div class="posts" id="posts-container"></div>
+      <main id="posting">
+        <div
+          id="modalContainer"
+          class="modalContainer"
+          style="display: none; max-width: 580px"></div>
+
+        <!-- ===============좋아요================ -->
+        <div
+          id="likes_modalContainer"
+          class="likes_modalContainer"
+          style="display: none; max-width: 580px"></div>
+      </main>
+    </div>
+    <div class="bottom-nav">
+      <a href="../pages/main-page.html">
+        <img src="../images/home/main.png" alt="홈" class="nav-icon" />
+      </a>
+      <img src="../images/home/ta.png" alt="돋보기" class="nav-icon" />
+      <a href="../pages/post-upload-page/photo.html">
+        <img src="../images/home/plus.png" alt="게시물 작성" class="nav-icon" />
+      </a>
+      <img src="../images/home/mm.png" alt="릴스" class="nav-icon" />
+      <a href="../pages/Mypage.html">
+        <img src="../images/home/my.png" alt="마이페이지" class="nav-icon" />
+      </a>
+    </div>
+  </body>
+</html>
