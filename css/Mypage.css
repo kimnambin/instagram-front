@@ -158,3 +158,23 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+.logout {
+  background-color: #ff4757;
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-left: 10px;
+}
+
+.profile-logout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}

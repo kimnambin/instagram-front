@@ -3,6 +3,13 @@ import createPostingHTML from './posting-list.js';
 import showComments from './comment-list.js';
 import showLikes from './likes-list.js';
 
+const logout = document.getElementById('logout');
+
+logout.addEventListener('click', () => {
+  localStorage.removeItem('userToken');
+  window.location.href = './login.html';
+});
+
 async function mypageData() {
   const {showData} = await getUser();
 
