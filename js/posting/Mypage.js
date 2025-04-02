@@ -185,7 +185,6 @@ async function mypageData() {
         await showLikes(e, postId, showData?.email);
       });
 
-      console.log(postId);
       modalLikes.addEventListener('click', async () => {
         try {
           const req = await fetch(
