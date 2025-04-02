@@ -46,15 +46,15 @@ async function updateFollowButton(user_id, followBtn, followCnt) {
   let isFollowing = followCnt.following.some(v => v.id === user_id);
 
   function updateButtonUI() {
-    followBtn.textContent = isFollowing ? '팔로우' : '언팔로우';
-    followBtn.style.backgroundColor = isFollowing ? '#0095f6' : '#dbdbdb';
+    followBtn.textContent = isFollowing ? '언팔로우' : '팔로우';
+    followBtn.style.backgroundColor = isFollowing ? '#dbdbdb' : '#0095f6';
   }
 
   updateButtonUI();
 
   followBtn.addEventListener('click', async () => {
     try {
-      const method = isFollowing ? 'POST' : 'DELETE';
+      const method = isFollowing ? 'DELETE' : 'POST';
 
       const followResponse = await fetch(
         `http://13.217.186.188:7777/follow/follow/${user_id}`,
