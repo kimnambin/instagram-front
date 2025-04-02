@@ -1,7 +1,6 @@
 export default async function createPostingHTML(item) {
   async function postData() {
     try {
-      // 게시글 상세 조회
       const req = await fetch(`http://13.217.186.188:7777/posts/${item.id}`, {
         method: 'GET',
       });
@@ -13,7 +12,6 @@ export default async function createPostingHTML(item) {
       const data = await req.json();
       const images = data.contents.map(v => v.url);
 
-      // 좋아요 개수 조회
       const likeAPI = await fetch(
         `http://13.217.186.188:7777/likes/${item.id}`,
         {

@@ -25,7 +25,6 @@ const handleInput = () => {
 };
 
 const submit = async () => {
-  console.log(email.value);
   try {
     const req = await fetch('http://13.217.186.188:7777/user/join', {
       method: 'POST',
@@ -40,11 +39,9 @@ const submit = async () => {
       }),
     });
 
-    console.log('서버 응답 상태:', req.status);
-
     if (req.ok) {
       const user_data = await req.json();
-      console.log(user_data);
+
       const msg = confirm('로그인하러 가기');
       if (msg) {
         window.location.href = 'login.html';

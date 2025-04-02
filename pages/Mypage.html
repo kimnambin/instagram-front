@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instagram Profile</title>
     <link rel="stylesheet" href="../css/Mypage.css" />
+    <link rel="stylesheet" href="../css/main-page.css" />
     <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/slider.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
     <script type="module" src="../js/component/get-user-id.js"></script>
     <script type="module" src="../js/posting/Mypage.js"></script>
     <script type="module" src="../js/posting/posting-list.js"></script>
     <script type="module" src="../js/posting/comment-list.js"></script>
     <script type="module" src="../js/posting/likes-list.js"></script>
+    <link
+      data-default-icon="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png"
+      rel="icon"
+      sizes="192x192"
+      href="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" />
   </head>
   <body>
     <div class="profile-container">
@@ -31,10 +39,20 @@
 
       <hr class="profile-divider" />
 
-      <div class="detail-post" id="detail-posts-container"></div>
-
       <!-- ===============게시글 모음================ -->
       <div class="posts" id="posts-container"></div>
+      <main id="posting">
+        <div
+          id="modalContainer"
+          class="modalContainer"
+          style="display: none; max-width: 580px"></div>
+
+        <!-- ===============좋아요================ -->
+        <div
+          id="likes_modalContainer"
+          class="likes_modalContainer"
+          style="display: none; max-width: 580px"></div>
+      </main>
     </div>
     <div class="bottom-nav">
       <a href="../pages/main-page.html">

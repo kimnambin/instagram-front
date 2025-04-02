@@ -2,8 +2,6 @@ async function getUser() {
   const ok = localStorage.getItem('userInfo');
   if (!ok) {
     window.localStorage.removeItem('userInfo');
-    console.log(ok);
-    // window.location.href = './login.html';
   } else {
     const res = await fetch(`http://13.217.186.188:7777/user/${ok}`, {
       method: 'GET',
@@ -20,9 +18,7 @@ async function getUser() {
 document.addEventListener('DOMContentLoaded', async () => {
   const showData = await getUser();
 
-  // 슬라이드 관련 요소 가져오기
   const slide = document.querySelector('.post_slide');
-
   const getImg = localStorage.getItem('uploadedFiles');
 
   let uploadedFiles = [];
@@ -41,9 +37,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('로컬스토리지에서 업로드된 파일을 찾을 수 없습니다.');
   }
 
-  console.log('파싱 후 업로드된 파일 배열:', uploadedFiles);
-
-  // 슬라이드 초기화
   if (uploadedFiles.length > 0) {
     initSlideShow(uploadedFiles, slide);
   }
@@ -74,7 +67,6 @@ function initSlideShow(uploadedFiles, slide) {
   const imgElements = [];
 
   fileData.forEach((v, index) => {
-    console.log(v);
     const slideItem = document.createElement('div');
     slideItem.classList.add('post_slide_item');
 
@@ -98,7 +90,7 @@ function initSlideShow(uploadedFiles, slide) {
     }
     slide.appendChild(slideItem);
   });
-  console.log(imgElements);
+
   slide.style.width = '100%';
 
   const addContainer = document.createElement('div');
@@ -118,7 +110,6 @@ function initSlideShow(uploadedFiles, slide) {
   setSlideControls(fileData, slide, prevBtn, nextBtn, pagination);
 }
 
-// 페이지네이션
 function setupPagination(uploadedFiles, pagination) {
   pagination.innerHTML = '';
   uploadedFiles.forEach((_, index) => {
@@ -129,7 +120,6 @@ function setupPagination(uploadedFiles, pagination) {
   });
 }
 
-// 슬라이드 이미지
 function setSlideControls(uploadedFiles, slide, prevBtn, nextBtn, pagination) {
   let currSlide = 0;
   updateSlidePosition(slide, currSlide, pagination);
@@ -166,7 +156,6 @@ function setSlideControls(uploadedFiles, slide, prevBtn, nextBtn, pagination) {
   });
 }
 
-// 이미지 위치
 function updateSlidePosition(slide, currSlide, pagination) {
   const slideItems = slide.querySelectorAll('.post_slide_item');
   const imgElements = slide.querySelectorAll('img');
@@ -180,13 +169,11 @@ function updateSlidePosition(slide, currSlide, pagination) {
     img.style.display = index === currSlide ? 'block' : 'none';
   });
 
-  // 슬라이드 이동
   const offset = -currSlide * 110;
   slideItems.forEach(item => {
     item.style.transform = `translateX(${offset}%)`;
   });
 
-  // 페이지네이션 업데이트
   const paginationItems = pagination.querySelectorAll('li');
 
   paginationItems.forEach((item, index) => {
@@ -218,7 +205,6 @@ async function handleUpload(uploadedFiles, username) {
       }),
     );
 
-    //  Blob=> 변환
     blobFiles.forEach((file, index) => {
       if (file) {
         formData.append('content', file, file.name);
@@ -232,7 +218,6 @@ async function handleUpload(uploadedFiles, username) {
 
     if (req.ok) {
       const res = await req.json();
-      console.log('업로드 성공:', res);
 
       window.location.href = '../main-page.html';
     } else {

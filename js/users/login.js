@@ -19,7 +19,7 @@ document
 
       if (req.ok) {
         const user_data = await req.json();
-        console.log(user_data);
+
         localStorage.setItem('userInfo', username);
         localStorage.setItem('userToken', user_data.token);
 

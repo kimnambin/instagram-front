@@ -34,10 +34,8 @@ export default async function showLikes(e, post_id) {
 
     const searchInput = document.getElementById('searchInput');
 
-    // 초기 좋아요 목록 표시
     updateLikesDisplay(likesData.user_ids);
 
-    // 검색 기능
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
       updateLikesDisplay(
@@ -48,7 +46,6 @@ export default async function showLikes(e, post_id) {
     });
 
     function updateLikesDisplay(showData) {
-      // 기존의 좋아요 목록 삭제
       const existingLikes = document.querySelectorAll('.modal-main');
       existingLikes.forEach(like => like.remove());
 
@@ -59,7 +56,7 @@ export default async function showLikes(e, post_id) {
         likes_modalContainer.appendChild(noLikeElement);
       } else {
         showData.forEach(item => {
-          const likeHTML = componentLikesHTML(item); // user_ids가 이메일이라고 가정
+          const likeHTML = componentLikesHTML(item);
           const likesElement = document.createElement('div');
           likesElement.innerHTML = likeHTML;
           likes_modalContainer.appendChild(likesElement);

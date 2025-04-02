@@ -1,15 +1,10 @@
-// TODO : 게시글 수정 + 포스팅이 비디오일 경우
-
 import createPostingHTML from './posting-list.js';
 import showComments from './comment-list.js';
 import showLikes from './likes-list.js';
 import {getUser} from '../component/get-user-id.js';
-import get_profile from './detail-profile.js';
 
 async function postingData() {
   const {showData} = await getUser();
-  console.log('user Id', showData?.id);
-  console.log('user email', showData?.email);
 
   try {
     const res = await fetch(`http://13.217.186.188:7777/posts/all`, {
@@ -20,13 +15,11 @@ async function postingData() {
     });
 
     const data = await res.json();
-    console.log('서버에서 받은 데이터:', data);
 
     const container = document.getElementById('posting');
     const loadingbar = document.getElementById('loading');
     let page = 0;
 
-    // 마이페이지
     document.getElementById('mypage').addEventListener('click', () => {
       event.preventDefault();
 
@@ -60,7 +53,6 @@ async function postingData() {
           }
 
           for (const item of newPosts) {
-            console.log(item);
             if (!loadedPostIds.has(item.id)) {
               loadedPostIds.add(item.id);
               const postingHTML = await createPostingHTML(item);
@@ -75,16 +67,13 @@ async function postingData() {
                 postElement.querySelector('.slide_next_button');
 
               slidePrevButton.addEventListener('click', () => {
-                console.log('이전 버튼 클릭');
                 prevMove();
               });
 
               slideNextButton.addEventListener('click', () => {
-                console.log('다음 버튼 클릭');
                 nextMove();
               });
 
-              // 슬라이드 관련 코드
               const slideItems = postElement.querySelectorAll('.slide_item');
               const pagination = postElement.querySelector('.slide_pagination');
               let currSlide = 0;
@@ -121,7 +110,6 @@ async function postingData() {
                 }
               });
 
-              // 프로필 보기
               const profile_detail = postElement.querySelector('#profile');
               profile_detail.addEventListener('click', async e => {
                 if (showData?.id === item.user_id) {
@@ -133,13 +121,11 @@ async function postingData() {
                 }
               });
 
-              // 댓글 목록
               const modalComment = postElement.querySelector('#modalComment');
               modalComment.addEventListener('click', async e => {
                 await showComments(e, post_id, showData?.email);
               });
 
-              // 좋아요 목록 및 추가 제거
               const req = await fetch(
                 `http://13.217.186.188:7777/likes/${post_id}`,
                 {
@@ -153,11 +139,9 @@ async function postingData() {
               const likeList = await req.json();
               let findLike = likeList.user_ids.includes(showData.id);
 
-              // 좋아요 목록
               const modalLikes = postElement.querySelector('#heart_logo');
               const like_cnt = postElement.querySelector('#like_cnt');
 
-              // 처음에 좋아요 상태에 따라 버튼 상태 설정
               updateLikeIcon(findLike);
 
               like_cnt.addEventListener('click', async e => {
@@ -165,7 +149,6 @@ async function postingData() {
               });
 
               modalLikes.addEventListener('click', async e => {
-                console.log('guswo tkdxo', findLike);
                 try {
                   const req = await fetch(
                     `http://13.217.186.188:7777/likes/${post_id}`,
@@ -183,7 +166,7 @@ async function postingData() {
                   if (req.ok) {
                     let newLikeState = !findLike;
                     updateLikeIcon(newLikeState);
-                    findLike = newLikeState; // 상태 갱신
+                    findLike = newLikeState;
                     location.reload();
                   } else {
                     alert('실패했습니다');
@@ -193,7 +176,6 @@ async function postingData() {
                 }
               });
 
-              // 좋아요 아이콘 업데이트 함수
               function updateLikeIcon(isLiked) {
                 if (isLiked) {
                   modalLikes.innerHTML = `
@@ -209,16 +191,12 @@ async function postingData() {
                 }
               }
             }
-
-            // catch (e) {}
-            // });
           }
         }
 
         loadingbar.style.display = 'none';
       }
     };
-    // };
 
     const observer = new IntersectionObserver(onIntersect, options);
     const sentinel = document.createElement('div');
@@ -227,8 +205,6 @@ async function postingData() {
   } catch (error) {
     console.error('에러 발생:', error);
   }
-
-  // =======================================
 }
 
 window.onload = postingData;

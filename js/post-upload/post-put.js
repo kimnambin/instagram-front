@@ -1,10 +1,8 @@
-// 뒤로가기
 const prePage = () => {
   location.reload();
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // TODO: post_id ID 받아오기 (로컬에서 받아와도 좋을 듯)
   const req = await fetch(`http://localhost:7777/posts/${post_id}`, {
     method: 'GET',
     headers: {
@@ -14,7 +12,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (req.ok) {
     const user_data = await req.json();
-    console.log('서버에서 받은 데이터:', user_data);
 
     const slide = document.querySelector('.slide');
     const prevBtn = document.querySelector('.slide_prev_button');
@@ -28,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const reader = new FileReader();
 
         reader.onloadend = () => {
-          const base64data = reader.result; // Base64 데이터
+          const base64data = reader.result;
           const videoElement = document.createElement('video');
           videoElement.src = base64data;
           videoElement.controls = true;
@@ -54,7 +51,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let currSlide = 0;
 
-    // 페이지네이션
     pagination.innerHTML = '';
     uploadedFiles.forEach((_, index) => {
       const li = document.createElement('li');
@@ -118,16 +114,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// 업로드 포스트 기능
 document
   .getElementById('write-submit-btn')
   .addEventListener('click', async e => {
     e.preventDefault();
     const msg = confirm('정말로 업로드 하시겠습니까?');
     if (msg) {
-      // TODO: 실제 포스트 ID로 대체
       const value = document.getElementById('write-input').value;
-      console.log('작성한 내용:', value);
 
       try {
         const req = await fetch(`http://localhost:7777/posts/${post_id}`, {
@@ -143,9 +136,6 @@ document
 
         if (req.ok) {
           const user_data = await req.json();
-          console.log('서버에서 받은 데이터:', user_data);
-
-          // window.location.href = '../main-page.html';
         } else {
           alert('업로드에 실패했습니다');
         }

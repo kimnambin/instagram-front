@@ -3,7 +3,6 @@ export default async function showComments(event, post_id, ok) {
   const postingId = postElement.getAttribute('data-post-id');
   const commentModal = document.getElementById('modalContainer');
 
-  // 게시글에 있는 댓글 가져오기
   try {
     const res = await fetch(`http://13.217.186.188:7777/comments/${post_id}`, {
       method: 'GET',
@@ -86,7 +85,7 @@ export default async function showComments(event, post_id, ok) {
 
           if (req.ok) {
             const user_data = await req.json();
-            // 댓글 추가 후 UI 업데이트
+
             const commentHTML = createCommentHTML(user_data);
             const commentElement = document.createElement('div');
             commentElement.innerHTML = commentHTML;
